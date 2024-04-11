@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://media.discordapp.net/attachments/1206202818583859233/1227916850923438100/TSS_LOGO-removebg-preview.png?ex=662a25ae&is=6617b0ae&hm=ccdc0d3a17b91ecad80fb31d9cb00d7f724f431f60d4a67ea7ba41e19a4858f9&=&format=webp&quality=lossless&width=625&height=625" type="image/png">
+    <title>Your Payments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 100%;
+            margin: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            position: relative; /* Added */
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #3c6338;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow-x: auto;
+        }
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            font-size: 14px;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .completed {
+            background-color: #d4edda;
+        }
+        .awaited {
+            background-color: #fff3cd;
+        }
+        /* Responsive styles */
+        @media screen and (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 5px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            table {
+                font-size: 12px;
+            }
+            .go-back-button {
+                font-size: 14px;
+            }
+            .scroll-indicator, .mobile {
+                font-size: 12px;
+            }
+        }
+        /* Added */
+        .go-back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #3c6338;
+            color: #ffffff;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.2s ease-in-out;
+            border-radius: 50px;
+            text-decoration: none;
+        }
+        .go-back-button:hover {
+            border-radius: 40px;
+            background-color: #345630;
+            color: #ffffff;
+            box-shadow: 0 0 20px #3c6338;
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <br>
+        <br>
+        <img src="https://media.discordapp.net/attachments/1206202818583859233/1227916850923438100/TSS_LOGO-removebg-preview.png?ex=662a25ae&is=6617b0ae&hm=ccdc0d3a17b91ecad80fb31d9cb00d7f724f431f60d4a67ea7ba41e19a4858f9&=&format=webp&quality=lossless&width=625&height=625" alt="Logo" style="display: block; margin: 0 auto; width: 150px;">
+        <h1>Your Payments</h1>
+        <!-- Changed to link -->
+        <a href="#" class="go-back-button">Back</a>
+        <div id="paymentsSection">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Payment ID</th>
+                        <th>Amount</th>
+                        <th>For</th>
+                        <th>Status</th>
+                        <th>Due Date</th>
+                        <th>Paid Date</th>
+                    </tr>
+                </thead>
+                <tbody id="paymentsTableBody">
+                    <!-- JavaScript will populate this section -->
+                </tbody>
+            </table>
+            <div class="scroll-indicator">Swipe left or right to view more</div>
+        </div>
+    </div>
+    <script>
+        // Sample student data (replace with actual data)
+        const studentData = {
+            payments: [
+                { id: 1, amount: "$100", for: "Tuition", status: "Awaited", dueDate: "2024-05-15", paidDate: null },
+                { id: 2, amount: "$150", for: "Books", status: "Completed", dueDate: "2024-04-01", paidDate: "2024-03-25" },
+                { id: 3, amount: "$75", for: "Miscellaneous", status: "Awaited", dueDate: "2024-06-10", paidDate: null }
+            ]
+        };
+
+        const paymentsTableBody = document.getElementById("paymentsTableBody");
+
+        // Function to populate payments table
+        function populatePaymentsTable(data) {
+            data.forEach(payment => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${payment.id}</td>
+                    <td>${payment.amount}</td>
+                    <td>${payment.for}</td>
+                    <td class="${payment.status.toLowerCase()}">${payment.status}</td>
+                    <td>${payment.dueDate}</td>
+                    <td>${payment.status === 'Completed' ? payment.paidDate : 'Not Paid'}</td>
+                `;
+                paymentsTableBody.appendChild(row);
+            });
+        }
+
+        // Populate payments table
+        populatePaymentsTable(studentData.payments);
+
+        // Function to go back (added)
+        document.querySelector('.go-back-button').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.history.back();
+        });
+    </script>
+</body>
+</html>

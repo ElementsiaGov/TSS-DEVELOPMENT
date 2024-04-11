@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://media.discordapp.net/attachments/1206202818583859233/1227916850923438100/TSS_LOGO-removebg-preview.png?ex=662a25ae&is=6617b0ae&hm=ccdc0d3a17b91ecad80fb31d9cb00d7f724f431f60d4a67ea7ba41e19a4858f9&=&format=webp&quality=lossless&width=625&height=625" type="image/png">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://media.discordapp.net/attachments/1206202818583859233/1228014978397769848/college-student.png?ex=662a8112&is=66180c12&hm=f398c9c28d1fa174d97c78edfb3fbc6ca675c8d594fbec3d31cca47a2c60888d&=&format=webp&quality=lossless&width=657&height=437'); /* Replace 'YOUR_IMAGE_URL_HERE' with the actual URL of your background image */
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.779);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            max-width: 500px;
+            text-align: center;
+        }
+        h1 {
+            color: #3c6338;
+            margin-top: 0;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 15px;
+            background-color: #3c6338;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: relative;
+            transition: 0.3s ease-in-out;
+        }
+        .button:hover {
+            border-radius: 40px;
+            background-color: #345630;
+            color: #ffffff;
+            box-shadow: 0 0 30px #3c6338;
+        }
+        .Animated-icon {
+            width: 40px;
+            height: auto;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: 0.15s ease-in-out;
+        }
+        input[type="text"]:hover,
+        input[type="password"]:hover {
+            border-radius: 15px;
+            box-shadow: 0 0 30px #3c6338;
+            border: #345630 3px solid;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .container {
+                width: calc(100% - 20px); /* Adjust container width to fit within the screen */
+                border-radius: 10px;
+                padding: 20px;
+                margin: 3px;
+
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="image" src="https://media.discordapp.net/attachments/1206202818583859233/1227916850923438100/TSS_LOGO-removebg-preview.png?ex=662a25ae&is=6617b0ae&hm=ccdc0d3a17b91ecad80fb31d9cb00d7f724f431f60d4a67ea7ba41e19a4858f9&=&format=webp&quality=lossless&width=625&height=625" style="width: 120px; height: auto;">
+        <h1>Login To Your Account</h1>
+        <form id="login-form">
+            <img src="https://media.discordapp.net/attachments/1206202818583859233/1227986969112608768/user_1.png?ex=662a66fc&is=6617f1fc&hm=23b9bdf1a4ac062939f56b1bd061e7c639d74547fcff74db935c4c0244076abe&=&format=webp&quality=lossless&width=640&height=640" class="animated-icon" alt="Username Icon" style="width: 70px; height: auto; margin-bottom: -20px; padding: 10px;">
+            <input type="text" id="student_number" placeholder="Student Number" required>
+            <img src="https://media.discordapp.net/attachments/1206202818583859233/1227986969397825546/padlock.png?ex=662a66fc&is=6617f1fc&hm=d82477463ed656f13ae3d25180c175d59f1eb5175dd9466c03b42db8f0226b00&=&format=webp&quality=lossless&width=640&height=640" class="animated-icon" alt="Password Icon" style="width: 70px; height: auto; margin-bottom: -20px; padding: 10px;">
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="submit" value="Login" class="button">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            var studentNumber = document.getElementById('student_number').value;
+            var password = document.getElementById('password').value;
+
+            // Check if the student number and password are correct
+            if (studentNumber === '00001' && password === '2421') {
+                // Redirect to the specified file
+                window.location.href = 'Studenthomepage.html';
+            } 
+            if (studentNumber === 'your_student_number' && password === 'your_password') {
+                // Redirect to the specified file
+                window.location.href = 'your_page.html';
+            } 
+            if (studentNumber === 'your_student_number' && password === 'your_password') {
+                // Redirect to the specified file
+                window.location.href = 'your_page.html';
+            } 
+            if (studentNumber === 'your_student_number' && password === 'your_password') {
+                // Redirect to the specified file
+                window.location.href = 'your_page.html';
+            } else {
+                if (studentNumber === 'your_student_number' && password === 'your_password') {
+                // Redirect to the specified file
+                window.location.href = 'your_page.html';
+            } 
+            if (studentNumber === 'your_student_number' && password === 'your_password') {
+                // Redirect to the specified file
+                window.location.href = 'your_page.html';
+            } 
+            }
+        });
+    </script>
+</body>
+</html>

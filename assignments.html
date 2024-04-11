@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://media.discordapp.net/attachments/1206202818583859233/1227916850923438100/TSS_LOGO-removebg-preview.png?ex=662a25ae&is=6617b0ae&hm=ccdc0d3a17b91ecad80fb31d9cb00d7f724f431f60d4a67ea7ba41e19a4858f9&=&format=webp&quality=lossless&width=625&height=625" type="image/png">
+  <title>Assignments</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
+  <style>
+    /* Add your custom styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-image: url('https://media.discordapp.net/attachments/1206202818583859233/1228053002791817378/R.png?ex=662aa47b&is=66182f7b&hm=1760df1f98acfdfeefcc2b1eb5c4c80729095d6b27894258356447cfedf37bd4&=&format=webp&quality=lossless&width=653&height=437'); /* Replace 'YOUR_IMAGE_URL_HERE' with the actual URL of your background image */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #3c6338;
+    }
+
+    .assignment {
+      margin-bottom: 20px;
+      border: 1px double #a99898;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    .assignment .title {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .assignment .due-date {
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .assignment .status {
+      color: #ff0000;
+      margin-bottom: 10px;
+    }
+
+    .assignment .resources {
+      margin-top: 15px;
+    }
+
+    .assignment .resources a {
+      display: block;
+      margin-bottom: 5px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .start-assignment, .download-resources {
+      display: inline-block;
+      background-color: #3c6338;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 15px;
+      font-size: 16px;
+      text-decoration: none;
+      margin-top: 10px;
+      width: 270px; /* Set width to match the "Start Assignment" button */
+      transition: 0.2s ease-in-out;
+    }
+
+    .start-assignment:hover, .download-resources:hover {
+      background-color: #395736;
+      border-radius: 40px;
+      box-shadow: 0 0 30px #357d2d;
+    }
+
+    /* Responsive styles */
+    @media only screen and (max-width: 600px) {
+      .container {
+        font-size: 15px;
+      }
+
+      .assignment {
+        padding: 10px;
+      }
+
+      .start-assignment, .download-resources {
+        width: calc(100%-20px);
+      }
+    }
+    .go-back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #3c6338;
+            color: #ffffff;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.2s ease-in-out;
+            border-radius: 50px;
+            text-decoration: none;
+        }
+        .go-back-button:hover {
+            border-radius: 40px;
+            background-color: #345630;
+            color: #ffffff;
+            box-shadow: 0 0 20px #3c6338;
+        }
+        @media screen and (max-width: 600px) {
+            .go-back-button {
+                margin-top: 15px;
+                margin-left: 5px;
+            }
+            .container {
+                margin: 5px;
+            }
+        }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://media.discordapp.net/attachments/1206202818583859233/1227916850923438100/TSS_LOGO-removebg-preview.png?ex=662a25ae&is=6617b0ae&hm=ccdc0d3a17b91ecad80fb31d9cb00d7f724f431f60d4a67ea7ba41e19a4858f9&=&format=webp&quality=lossless&width=625&height=625" alt="Logo" style="display: block; margin: 0 auto; width: 150px;">
+    <a href="Studenthomepage.html" class="go-back-button">Back</a>
+    <h1>Assignments</h1>
+    <div class="assignment">
+      <div class="title"><i class="fas fa-file-alt"></i> Assignment 1: Essay</div>
+      <div class="due-date">Due Date: April 15, 2024</div>
+      <div class="status">Status: Not Submitted</div>
+      <div class="resources">
+        <a href="#" class="download-resources">Download Resources</a>
+      </div>
+      <a href="#" class="start-assignment">Start Assignment (Google Form Link)</a>
+    </div>
+    <div class="assignment">
+      <div class="title"><i class="fas fa-file-powerpoint"></i> Assignment 2: Presentation</div>
+      <div class="due-date">Due Date: April 20, 2024</div>
+      <div class="status">Status: Submitted</div>
+      <div class="resources">
+        <a href="#" class="download-resources">Download Resources</a>
+      </div>
+      <a href="#" class="start-assignment">Start Assignment (Google Form Link)</a>
+    </div>
+    <!-- Add more assignments here -->
+  </div>
+</body>
+</html>
