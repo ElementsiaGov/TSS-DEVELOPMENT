@@ -404,6 +404,7 @@ body {
 
 .contact-img {
   width: 50%;
+  margin-right: -40px;
 }
 
 .contact-img img {
@@ -417,7 +418,7 @@ body {
 .form-container {
   padding: 1rem;
   width: 50%;
-  margin: auto;
+  margin: 0;
 }
 
 .form-container input {
@@ -654,6 +655,9 @@ body {
   .img-container h3 {
     font-size: 1.5rem;
   }
+  .doc {
+    display: none;
+  }
 
   .img-container .btn {
     font-size: 0.7rem;
@@ -665,6 +669,43 @@ body {
     height: 50vmax;
   }
 }
+.doc {
+width: 780px;
+}
+.form-container input[type="submit"] {
+  display: block;
+  padding: 1em;
+  background-color: #3c6338; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: 0.3s ease-in-out;
+}
+
+.form-container input[type="submit"]:hover {
+  background-color: #365333; /* Button background color on hover */
+  border-radius: 40px;
+  box-shadow: 0 0 20px #3c6338;
+}
+
+@media (min-width: 769px) {
+  /* Desktop-specific styles */
+  .form-container input[type="submit"] {
+    margin-right: 100px; /* Move the button to the right */
+    margin-bottom: 200px;
+  }
+}
+@media (max-width: 769px) {
+  /* Desktop-specific styles */
+  .form-container input[type="submit"] {
+    margin-left: 15px; /* Move the button to the right */
+    margin-bottom: 30px;
+  }
+}
+
+
   </Style>
   <body>
     <nav class="navbar">
@@ -893,11 +934,15 @@ body {
     <section id="contact">
       <div class="contact-container container">
         <div class="contact-img">
-          <img src="https://i.postimg.cc/1XvYM67V/restraunt2.jpg" alt="" />
+          <img src="https://media.discordapp.net/attachments/1206202818583859233/1228081653847429240/Fall-Stock-Old-Main.png?ex=662abf2a&is=66184a2a&hm=74114f2442f893ad4742f8d03978bb68ee5a7c54617afc7b6cf0791fc0143792&=&format=webp&quality=lossless&width=1006&height=662" alt="" />
         </div>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScbiRL1Q_ARU4ku9-zvCCUXwVgtwYiCjSqFCgonSHAgp3Fi0Q/viewform?embedded=true" width="350" height="1152" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <div class="Doc">
 
+        </div>
         <div class="form-container">
+          <form action="https://docs.google.com/forms/d/e/1FAIpQLScbiRL1Q_ARU4ku9-zvCCUXwVgtwYiCjSqFCgonSHAgp3Fi0Q/viewform?usp=sf_link">
+            <input type="submit" value="Contact us">
+        </form>
         </div>
       </div>
     </section>

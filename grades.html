@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <link rel="icon" href="https://media.discordapp.net/attachments/1206202818583859233/1227916850923438100/TSS_LOGO-removebg-preview.png?ex=662a25ae&is=6617b0ae&hm=ccdc0d3a17b91ecad80fb31d9cb00d7f724f431f60d4a67ea7ba41e19a4858f9&=&format=webp&quality=lossless&width=625&height=625" type="image/png">
+    <title>Grades</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-image: url('https://media.discordapp.net/attachments/1206202818583859233/1227344635584839741/R.png?ex=662810c4&is=66159bc4&hm=4e2ecee164fa4b250c8390a21923e13e0e8f3b86b86f8e4f193b53c12f5a1d94&=&format=webp&quality=lossless&width=996&height=662'); /* Replace 'YOUR_IMAGE_URL_HERE' with the actual URL of your background image */
+      background-size: cover;
+      background-position: center;
+    }
+
+        .grade-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #ffffffcb;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .pass {
+            color: green;
+            font-weight: bold;
+        }
+        .fail {
+            color: red;
+            font-weight: bold;
+        }
+        .h2 {
+            text-align: center;
+            font-size: 24px;
+            color: #3c6338;
+        }
+        .go-back-button {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            background-color: #3c6338;
+            color: #ffffff;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.2s ease-in-out;
+            border-radius: 50px;
+            text-decoration: none;
+        }
+        .go-back-button:hover {
+            border-radius: 40px;
+            background-color: #345630;
+            color: #ffffff;
+            box-shadow: 0 0 20px #3c6338;
+        }
+        @media screen and (max-width: 600px) {
+            .go-back-button {
+                margin-top: 15px;
+                margin-left: 5px;
+            }
+            .grade-container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="grade-container">
+    <img src="https://media.discordapp.net/attachments/1206202818583859233/1227916850923438100/TSS_LOGO-removebg-preview.png?ex=662a25ae&is=6617b0ae&hm=ccdc0d3a17b91ecad80fb31d9cb00d7f724f431f60d4a67ea7ba41e19a4858f9&=&format=webp&quality=lossless&width=625&height=625" alt="Logo" style="display: block; margin: 0 auto; width: 150px;">
+    <a href="Studenthomepage.html" class="go-back-button">Back</a>
+    <h2 class="h2">Your Grades</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Test/Task</th>
+                <th>Grade</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="grades-table">
+            <!-- Grades will be displayed here dynamically -->
+        </tbody>
+    </table>
+    <div id="average">
+        Average Grade: <span id="average-grade"></span>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<script>
+    // Function to calculate the average of grades
+    function calculateAverage(grades) {
+        if (grades.length === 0) return 0;
+
+        var sum = grades.reduce(function(total, grade) {
+            return total + grade.grade;
+        }, 0);
+
+        return sum / grades.length;
+    }
+
+    // Sample grades (you can replace it with your own)
+    var grades = [
+        { task: "Midterm Exam", grade: 86 },
+        { task: "Homework 1", grade: 57 },
+        { task: "Project Presentation", grade: 48 },
+        { task: "Final Exam", grade: 32 },
+        { task: "Essay", grade: 26 }
+    ];
+
+    var gradesTable = document.getElementById('grades-table');
+    var averageGradeSpan = document.getElementById('average-grade');
+
+    // Display grades
+    grades.forEach(function(grade) {
+        var row = document.createElement('tr');
+        var statusClass = grade.grade >= 40 ? "pass" : "fail";
+        row.innerHTML = `
+            <td>${grade.task}</td>
+            <td>${grade.grade}</td>
+            <td class="${statusClass}">${grade.grade >= 40 ? "Passed" : "Failed"}</td>
+        `;
+        gradesTable.appendChild(row);
+    });
+
+    // Calculate and display average grade
+    var averageGrade = calculateAverage(grades);
+    averageGradeSpan.textContent = averageGrade.toFixed(2);
+</script>
+
+</body>
+</html>
