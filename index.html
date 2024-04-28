@@ -31,6 +31,25 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
+    #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  #loading-logo {
+    width: 200px; /* Adjust size as needed */
+    height: auto;
+  }
+  #content {
+    display: none;
+  }
 </style>
 </head>
 <body>
@@ -42,6 +61,20 @@
         // Redirect to main.html
         window.location.href = 'main.html';
     }, 3000);
+      // Hide loading screen when the DOM is fully loaded
+  document.addEventListener("DOMContentLoaded", function() {
+    // Hide loading screen and white background
+    document.getElementById("loading-screen").style.opacity = "0";
+
+    // Delay removing loading screen and white background to ensure smooth transition
+    setTimeout(function() {
+      // Remove loading screen and white background
+      document.getElementById("loading-screen").style.display = "none";
+    }, 1000); // Adjust timing if necessary
+
+    // Show content
+    document.getElementById("content").style.display = "block";
+  });
 </script>
 </body>
 </html>

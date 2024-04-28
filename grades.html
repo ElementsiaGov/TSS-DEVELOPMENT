@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-  <link rel="icon" href="https://media.discordapp.net/attachments/1206202818583859233/1227916850923438100/TSS_LOGO-removebg-preview.png?ex=662a25ae&is=6617b0ae&hm=ccdc0d3a17b91ecad80fb31d9cb00d7f724f431f60d4a67ea7ba41e19a4858f9&=&format=webp&quality=lossless&width=625&height=625" type="image/png">
+    <link rel="icon" href="https://media.discordapp.net/attachments/1206202818583859233/1227916850923438100/TSS_LOGO-removebg-preview.png?ex=662a25ae&is=6617b0ae&hm=ccdc0d3a17b91ecad80fb31d9cb00d7f724f431f60d4a67ea7ba41e19a4858f9&=&format=webp&quality=lossless&width=625&height=625" type="image/png">
     <title>Grades</title>
     <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-image: url('https://media.discordapp.net/attachments/1206202818583859233/1227344635584839741/R.png?ex=662810c4&is=66159bc4&hm=4e2ecee164fa4b250c8390a21923e13e0e8f3b86b86f8e4f193b53c12f5a1d94&=&format=webp&quality=lossless&width=996&height=662'); /* Replace 'YOUR_IMAGE_URL_HERE' with the actual URL of your background image */
-      background-size: cover;
-      background-position: center;
-    }
-
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-image: url('https://media.discordapp.net/attachments/1206202818583859233/1227344635584839741/R.png?ex=662810c4&is=66159bc4&hm=4e2ecee164fa4b250c8390a21923e13e0e8f3b86b86f8e4f193b53c12f5a1d94&=&format=webp&quality=lossless&width=996&height=662'); /* Replace 'YOUR_IMAGE_URL_HERE' with the actual URL of your background image */
+            background-size: cover;
+            background-position: center;
+        }
+        #average {
+            font-weight: bold;
+        }
         .grade-container {
             max-width: 600px;
             margin: 20px auto;
@@ -80,10 +82,31 @@
                 border-radius: 5px;
             }
         }
+        #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  #loading-logo {
+    width: 200px; /* Adjust size as needed */
+    height: auto;
+  }
+  #content {
+    display: none;
+  }
     </style>
 </head>
 <body>
-
+    <div id="loading-screen">
+        <img id="loading-logo" src="https://media.discordapp.net/attachments/1206202818583859233/1228798706380443768/TSS_PIN_LOGO-removebg-preview.png?ex=662f5539&is=662e03b9&hm=bde9ef2b77572723dac14b2d393848442f433485cb8d1f4cb7ceaea935217f19&=&format=webp&quality=lossless&width=437&height=437" alt="Loading Logo">
+      </div>
 <div class="grade-container">
     <img src="https://media.discordapp.net/attachments/1206202818583859233/1227916850923438100/TSS_LOGO-removebg-preview.png?ex=662a25ae&is=6617b0ae&hm=ccdc0d3a17b91ecad80fb31d9cb00d7f724f431f60d4a67ea7ba41e19a4858f9&=&format=webp&quality=lossless&width=625&height=625" alt="Logo" style="display: block; margin: 0 auto; width: 150px;">
     <a href="Studenthomepage.html" class="go-back-button">Back</a>
@@ -129,12 +152,11 @@
         return sum / grades.length;
     }
 
-    // Sample grades (you can replace it with your own)
     var grades = [
-        { task: "Midterm Exam", grade: 86 },
-        { task: "Homework 1", grade: 57 },
-        { task: "Project Presentation", grade: 48 },
-        { task: "Final Exam", grade: 32 },
+        { task: "Midterm Exam", grade: 89 },
+        { task: "Homework 1", grade: 12 },
+        { task: "Project Presentation", grade: 23 },
+        { task: "Final Exam", grade: 30 },
         { task: "Essay", grade: 26 }
     ];
 
@@ -156,6 +178,30 @@
     // Calculate and display average grade
     var averageGrade = calculateAverage(grades);
     averageGradeSpan.textContent = averageGrade.toFixed(2);
+
+    // Determine overall status based on average grade
+    var overallStatus = averageGrade >= 40 ? "Pass" : "Fail";
+
+    // Add row for overall status
+    var overallStatusRow = document.createElement('tr');
+    overallStatusRow.innerHTML = `
+        <td colspan="3" style="text-align: center; font-weight: bold;">Overall Status: ${overallStatus}</td>
+    `;
+    gradesTable.appendChild(overallStatusRow);
+          // Hide loading screen when the DOM is fully loaded
+  document.addEventListener("DOMContentLoaded", function() {
+    // Hide loading screen and white background
+    document.getElementById("loading-screen").style.opacity = "0";
+
+    // Delay removing loading screen and white background to ensure smooth transition
+    setTimeout(function() {
+      // Remove loading screen and white background
+      document.getElementById("loading-screen").style.display = "none";
+    }, 1000); // Adjust timing if necessary
+
+    // Show content
+    document.getElementById("content").style.display = "block";
+  });
 </script>
 
 </body>
